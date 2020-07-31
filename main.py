@@ -12,17 +12,19 @@ def to_one_hot(dimension,tensor):
 	return np.array(rtn)
 
 (x_train, y_train), (x_test, y_test) = mnist.load_data()
-# import matplotlib.pyplot as plt
-# plt.figure("fig")
-# for i in range(10):
-# 	plt.subplot(2,5,i+1)
-# 	plt.imshow(x_train[i],cmap='gray')
-# plt.show()
+import matplotlib.pyplot as plt
+plt.figure("fig")
+for i in range(10):
+	plt.subplot(2,5,i+1)
+	plt.imshow(x_train[i],cmap='gray')
+plt.show()
 
 x_test, x_train = x_test / 255., x_train / 255.
 x_test=np.reshape(x_test,newshape=[-1,28,28,1])
 x_train=np.reshape(x_train,newshape=[-1,28,28,1])
 y_test, y_train = to_one_hot(10, y_test), to_one_hot(10, y_train)
+
+
 
 train_size=x_train.shape[0]
 test_size=x_test.shape[0]
